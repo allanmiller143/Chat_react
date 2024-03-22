@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import EmailInput from "../../Components/EmailInput/EmailInput";
 import "./LoginPage.css";
@@ -12,7 +13,6 @@ import AppContext from "../../Context/AppContext";
 function LoginPage() {
   const navigate = useNavigate();
     useEffect(() => {
-
       setPassword('');
       setEmail('');
   },[])
@@ -28,8 +28,9 @@ function LoginPage() {
       console.error("Error signing in with Google:", error);
     }
   };
+
   const HandleFacebookLogin = () => {
-    alert(`Welcome ${auth.currentUser.displayName}`);
+    alert("Funcionalidade em desenvolvimento");
   };
 
   const {email,setEmail} = useContext(AppContext);
@@ -38,7 +39,10 @@ function LoginPage() {
   return (
     <div className="login__page">
       <div className="login__image">
-          <img src="https://i.pinimg.com/564x/89/4a/86/894a868c809ed893ae5f5563bb805068.jpg" alt="imagem"  className="login__image_img"/>
+        <h1 className="login__title_img">
+         Seu melhor chat
+        </h1>
+         
       </div>
       <div className="login__form">
         <div className="login__content">

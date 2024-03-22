@@ -1,0 +1,112 @@
+.login__page{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    background-color: rgb(3, 5, 36);
+    width: 100%;
+    height: 100vh;
+
+}
+
+.login__image{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(3, 5, 36)), url('https://i.pinimg.com/564x/0b/b1/17/0bb11751be49a3a59f3bfda8b72561b3.jpg');
+    background-size: cover;
+}
+
+.login__image_img{
+    width: 100%;
+    height: 100vh;
+}
+
+.login__form{
+    background-color: transparent;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.082);
+    border-radius: 5px;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    max-height: 450px;
+    padding: 20px;
+}
+
+.login__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+    max-width: 80%;
+}
+
+.login__title{
+    text-align: start;
+    width: 100%;
+    max-width: 80%; 
+}
+
+.login__text__1{
+    font-size: 6vh;
+    color: rgba(0, 0, 0, 0.79);
+}
+
+.login__text__2{
+    font-size: 3vh;
+    font-weight: lighter;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(0, 0, 0, 0.79);
+
+}
+
+.login__register{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    width: 100%;
+    max-width: 80%;
+    justify-content: start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.login__register a{
+    text-decoration: none;
+    color: rgb(9, 51, 75);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.login__title_img {
+    font-size: 45px;
+    color: rgb(255, 255, 255);
+    text-shadow: -1px -1px 0 rgb(9, 51, 75),
+                  1px -1px 0 rgb(9, 51, 75),
+                 -1px  1px 0 rgb(9, 51, 75),
+                  1px  1px 0 rgb(9, 51, 75);
+
+    font-weight: 700;
+}

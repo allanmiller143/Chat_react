@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import EmailInput from "../../Components/EmailInput/EmailInput";
 import PasswordInput from "../../Components/PasswordInput/PasswordInput";
@@ -6,6 +7,7 @@ import AppContext from "../../Context/AppContext";
 import { auth } from "../../Services/Firebase";
 import {useNavigate } from "react-router-dom";
 import "./RegisterPage.css";
+import addUserToFirestore from "../../Services/FireBaseLogin";
 function RegisterPage() {
 
   const {email,setEmail,password,setPassword,confirmPassword,setConfirmPassword} = useContext(AppContext);
@@ -14,7 +16,10 @@ function RegisterPage() {
       if((email !== "" && password !== "" && confirmPassword !== "") && (password === confirmPassword)){ 
         try {
           const response = await auth.createUserWithEmailAndPassword(email, password);
-          alert(`user created ${response.user.email} with id ${response.user.uid}`);
+          if(response){
+            const { uid, email } = response.user;
+            addUserToFirestore(uid, "User", email, "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png");
+          }
           navigate(`/chatPage/${encodeURIComponent(auth.currentUser.uid)}`);
           setEmail("");
           setPassword("");
@@ -39,14 +44,13 @@ function RegisterPage() {
   return (
         <div className="login__page">
           <div className="login__image">
-              <img src="https://i.pinimg.com/564x/89/4a/86/894a868c809ed893ae5f5563bb805068.jpg" alt="imagem"  className="login__image_img"/>
+            
           </div>
           <div className="login__form">
             <div className="login__content">
               <div className="login__title">
                 <h2 className="login__text__1">
                   Vamos criar uma nova conta?
-
                 </h2>
                 <p className="login__text__2">
                   Preencha os campos necessários
