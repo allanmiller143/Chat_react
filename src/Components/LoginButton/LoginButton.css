@@ -1,0 +1,16 @@
+.LoginButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(8, 39, 66);
+    color: beige;
+    font-weight: 500;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 18px;
+}

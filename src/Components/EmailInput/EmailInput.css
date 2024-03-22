@@ -1,0 +1,39 @@
+.EmailInput{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: rgba(247, 247, 247, 0.591);
+    width: 100%;
+    max-width: 80%;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.EmailInputIcon{
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.582);
+
+}
+
+.EmailInputInput{
+    border: none;
+    outline: none;
+    height: 100%;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    max-width: 80%;
+    font-size: 15px;
+    padding-left: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    
+
+}
+
+.EmailInputButton{
+
+}
