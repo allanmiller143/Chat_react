@@ -1,17 +1,40 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, createBrowserRouter,RouterProvider } from 'react-router-dom';
 import LoginPage from '../Pages/LoginPage/LoginPage';
 import ChatPage from '../Pages/ChatPage/ChatPage';
+import PrivateRoute from './PrivateRoute';
 
 const AppRoutes = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/chatPage" element={<ChatPage />} />
-      </Routes>
-    </Router>
-  );
+  const PrivateRoutes = [
+    {
+      path: "/",
+      element: <PrivateRoute/>,
+      children: [
+        {
+          path: "/chatPage/:id",
+          element: <ChatPage/>
+        }
+      ]
+    }
+  ];
+
+  const notAuthenticatedRoutes = [
+    {
+        path: "/",
+        element: <LoginPage />,
+    },
+  ];
+
+  const router = createBrowserRouter([
+    ...notAuthenticatedRoutes,
+    ...PrivateRoutes
+  ]);
+
+  
+
+
+
+  return <RouterProvider router={router} />;
 };
 
 export default AppRoutes;

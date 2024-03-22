@@ -1,9 +1,10 @@
 import React from "react";
-
+import { useParams } from 'react-router-dom';
 function ChatPage() {
+  const { id } = useParams();
     return (
       <div>
-        ChatPage
+        {`chats do usuario com id ${id}`}
       </div>
     );
 }
