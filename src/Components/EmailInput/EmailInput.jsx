@@ -1,10 +1,11 @@
 import React from "react";
-import {useState} from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import "./EmailInput.css";
+import {useContext} from "react";
+import AppContext from "../../Context/AppContext";
 function EmailInput() {
 
-    const [Email, setEmail] = useState("");
+    const {email,setEmail} = useContext(AppContext);
 
     return (
       <div className="EmailInput">
@@ -12,7 +13,7 @@ function EmailInput() {
         <input 
           type="email"
           placeholder="Email"
-          value={Email}
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="EmailInputInput"
           >

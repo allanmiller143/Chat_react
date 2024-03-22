@@ -2,6 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import "./SignInButton.css";
 
+
 function SignInButton({data}) {
     const {label,onClick} = data;
     return (

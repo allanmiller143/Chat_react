@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import {useContext,useState} from "react";
+import AppContext from "../../Context/AppContext";
 import { RiLockPasswordFill, RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import "./PasswordInput.css";
 
 function PasswordInput() {
-  const [password, setPassword] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
+  const {password,setPassword} = useContext(AppContext);
+  
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);

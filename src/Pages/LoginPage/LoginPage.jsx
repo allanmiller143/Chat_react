@@ -18,7 +18,6 @@ function LoginPage() {
         const { uid, displayName, email, photoURL } = response.user;
         addUserToFirestore(uid, displayName, email, photoURL);
         navigate(`/chatPage/${encodeURIComponent(auth.currentUser.uid)}`);
-        alert(`Welcome ${auth.currentUser.displayName}`);
       }
     } catch (error) {
       console.error("Error signing in with Google:", error);

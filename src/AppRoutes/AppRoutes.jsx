@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, createBrowserRouter,RouterProvider } from 'react-router-dom';
 import LoginPage from '../Pages/LoginPage/LoginPage';
 import ChatPage from '../Pages/ChatPage/ChatPage';
