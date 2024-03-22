@@ -1,11 +1,13 @@
 import React from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import "./EmailInput.css";
-import {useContext} from "react";
-import AppContext from "../../Context/AppContext";
-function EmailInput() {
+import propTypes from "prop-types";
+function EmailInput({data}) {
+   const {email,setEmail} = data;
 
-    const {email,setEmail} = useContext(AppContext);
+   const handleEmailInput = (e) => {
+    setEmail(e.target.value);
+   };
 
     return (
       <div className="EmailInput">
@@ -14,7 +16,7 @@ function EmailInput() {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailInput}
           className="EmailInputInput"
           >
         </input>
@@ -26,3 +28,7 @@ function EmailInput() {
 }
 
 export default EmailInput;
+
+EmailInput.propTypes = {
+  data : propTypes.shape({})
+}.isRequired;

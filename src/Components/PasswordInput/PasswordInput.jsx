@@ -1,26 +1,31 @@
-import {useContext,useState} from "react";
-import AppContext from "../../Context/AppContext";
+import {useState} from "react";
+
 import { RiLockPasswordFill, RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import "./PasswordInput.css";
+import propTypes from "prop-types";
 
-function PasswordInput() {
+function PasswordInput({data}) {
 
   const [showPassword, setShowPassword] = useState(false);
-  const {password,setPassword} = useContext(AppContext);
-  
-
+  const {password,setPassword,hint}  = data;
+ 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handlePasswordInput = (e) => {
+    setPassword(e.target.value);
+   };
+  
 
   return (
     <div className="PasswordInput">
       <RiLockPasswordFill className="PasswordInputIcon" />
       <input
         type={showPassword ? "text" : "password"}
-        placeholder="Password"
+        placeholder={hint}
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handlePasswordInput}
         className="PasswordInputInput"
       />
       <button
@@ -35,3 +40,7 @@ function PasswordInput() {
 }
 
 export default PasswordInput;
+
+PasswordInput.propTypes = {
+  data : propTypes.shape({})
+}.isRequired;

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, createBrowserRouter,RouterProvider } from 'rea
 import LoginPage from '../Pages/LoginPage/LoginPage';
 import ChatPage from '../Pages/ChatPage/ChatPage';
 import PrivateRoute from './PrivateRoute';
+import RegisterPage from '../Pages/RegisterPage/RegisterPage';
 
 const AppRoutes = () => {
   const PrivateRoutes = [
@@ -24,6 +25,10 @@ const AppRoutes = () => {
         path: "/",
         element: <LoginPage />,
     },
+    {
+      path: "/register",
+      element: <RegisterPage />,
+  },
   ];
 
   const router = createBrowserRouter([

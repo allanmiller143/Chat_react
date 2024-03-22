@@ -5,12 +5,17 @@ import PasswordInput from "../../Components/PasswordInput/PasswordInput";
 import LoginButton from "../../Components/LoginButton/LoginButton";
 import SignInButton from "../../Components/SignInButton/SignInButton";
 import { auth, provider } from "../../Services/Firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import addUserToFirestore from "../../Services/FireBaseLogin";
-
+import {useContext,useEffect} from "react";
+import AppContext from "../../Context/AppContext";
 function LoginPage() {
   const navigate = useNavigate();
+    useEffect(() => {
 
+      setPassword('');
+      setEmail('');
+  },[])
   const HandleGoogleLogin = async () => {
     try {
       const response = await auth.signInWithPopup(provider);
@@ -23,10 +28,12 @@ function LoginPage() {
       console.error("Error signing in with Google:", error);
     }
   };
-
   const HandleFacebookLogin = () => {
     alert(`Welcome ${auth.currentUser.displayName}`);
   };
+
+  const {email,setEmail} = useContext(AppContext);
+  const {password,setPassword} = useContext(AppContext);
 
   return (
     <div className="login__page">
@@ -43,9 +50,13 @@ function LoginPage() {
               Bem vindo de volta, sentimos a sua falta
             </p>
           </div>
-          <EmailInput/>
-          <PasswordInput/>
+          <EmailInput data = {{email ,setEmail}} />
+          <PasswordInput data = {{password, setPassword,hint: "Password"}}/>
           <LoginButton/>
+          <div className="login__register">
+            <p>Não possui conta? </p>
+            <Link to="/register">Registre-se</Link>
+          </div>
           <p>Ou continue com </p>
           <div className="login__buttons">
             <SignInButton data = {{label: "Google", onClick: HandleGoogleLogin}}/>
