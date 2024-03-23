@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./SidebarChatItem.css";
 import propTypes from "prop-types";
-import { db,auth } from "../../Services/Firebase";
+import { db, auth } from "../../Services/Firebase";
+import AppContext from "../../Context/AppContext";
 
-function SidebarChatItem({ data }) {
+function SidebarChatItem({ data, chatId }) {
   const { lastMessage, users } = data;
   const [userData, setUserData] = useState(null);
+  const { setCurrentChat, setCurrentChatInfo } = useContext(AppContext);
   const user = users[0] === auth.currentUser?.email ? users[1] : users[0];
 
   useEffect(() => {
@@ -38,8 +40,14 @@ function SidebarChatItem({ data }) {
     fetchUserData();
   }, [users]);
 
+  const handleClick = () => {
+    alert(chatId);
+    setCurrentChat(chatId) 
+    setCurrentChatInfo({photoURL: userData.photoURL, name: userData.name});
+  };
+
   return (
-    <div className="SidebarChatItem">
+    <button className="SidebarChatItem" onClick={handleClick} type="submit">
       {userData && (
         <>
           <img
@@ -49,14 +57,14 @@ function SidebarChatItem({ data }) {
           />
           <div className="SidebarChatItemContent">
             <div className="SidebarChatItemInfo">
-                <p className="SidebarChatItemName">{userData.name}</p>
-                <p className="SidebarChatItemLastMessage">rehfghfghfghg</p>
+              <p className="SidebarChatItemName">{userData.name}</p>
+              <p className="SidebarChatItemLastMessage">rehfghfghfghg</p>
             </div>
-              <p className="SidebarChatItemHour">10:00</p>
+            <p className="SidebarChatItemHour">10:00</p>
           </div>
         </>
       )}
-    </div>
+    </button>
   );
 }
 
@@ -64,4 +72,5 @@ export default SidebarChatItem;
 
 SidebarChatItem.propTypes = {
   data: propTypes.shape({}),
+
 }.isRequired;

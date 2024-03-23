@@ -9,6 +9,7 @@ function Provider({children}){
   const [confirmPassword, setConfirmPassword] = useState(""); // isso vai ser uma lista de produtos, o valor dentro do userState é o valor inicial 
   const [newEmail, setNewEmail] = useState(""); // isso vai ser uma lista de produtos, o valor dentro do userState é o valor inicial 
   const [currentChat, setCurrentChat] = useState(null);
+  const [currentChatInfo, setCurrentChatInfo] = useState(null);
 
   const value = {
     email,
@@ -20,7 +21,9 @@ function Provider({children}){
     newEmail,
     setNewEmail,
     currentChat,
-    setCurrentChat
+    setCurrentChat,
+    setCurrentChatInfo,
+    currentChatInfo
     
 
   };

@@ -6,14 +6,17 @@ import Chat from "../../Components/Chat/Chat";
 import { useContext } from "react";
 import AppContext from "../../Context/AppContext";
 import ChatEmpty from "../../Components/ChatEmpty/ChatEmpty";
+import {db} from "../../Services/Firebase";
 
 function ChatPage() {
   const {currentChat}  = useContext(AppContext);
+  
+
   const { id } = useParams();
     return (
       <div className="ChatPage">
         <Sidebar/>
-        {currentChat === null ? <ChatEmpty/> : <Chat/>}
+        {currentChat === null ? <ChatEmpty/> : <Chat data={id}/>}
       </div>
     );
 }

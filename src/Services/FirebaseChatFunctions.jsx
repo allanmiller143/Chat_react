@@ -17,3 +17,22 @@ export const findUserChats = async (userEmail) => {
         console.error("Error finding user chats: ", error);
     }
 }
+
+export const sendMessage = async (chatId, messageContent) => {
+    try {
+        // Adicionar uma nova mensagem à subcoleção "messages" dentro do documento "chatId"
+        await db.collection("chats").doc(chatId).collection("messages").add({
+            content: messageContent,
+        });
+        
+        await db.collection("chats").doc(chatId).set({
+            lastMessageTimeStamp: messageContent.timestamp,
+            sender: messageContent.sender,
+            lastMessageContent: messageContent.content,
+        }, { merge: true });
+        
+        alert("Mensagem enviada com sucesso");
+    } catch (error) {
+        alert("Erro ao enviar mensagem: " + error);
+    }
+}

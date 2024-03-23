@@ -1,4 +1,4 @@
-.SidebarHeader{
+.ChatHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,9 +8,10 @@
     height: 59px;
     width: 100%;
     background-color: beige;
+    
 }
 
-.SidebarHeaderAvatar{
+.ChatHeaderUserPhoto{
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -26,7 +27,24 @@
     gap: 10px;
 }
 
-.SidebarHeaderButton{
-    font-size: 1.3rem;
+.chatButton{
     cursor: pointer;
+}
+
+.ChatUserInfo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ChatUserName{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.ChatOptions{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3rem;
 }

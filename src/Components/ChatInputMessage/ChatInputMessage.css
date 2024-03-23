@@ -1,0 +1,41 @@
+.ChatInputMessage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: beige;
+    padding: 10px 16px;
+    box-shadow: 0 1px 2px #0000009b;
+    border-radius: 5px;
+  
+}
+
+.ChatInputMessage:hover{
+    background-color: rgba(142, 142, 142, 0.2);
+}
+
+.ChatInputMessageInput{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 30px;
+    background-color: transparent;
+    
+}
+
+.ChatInputMessageButton{
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(8, 39, 66);
+    color: beige;
+    font-size: 14px;
+    margin-left: 10px;
+
+}
