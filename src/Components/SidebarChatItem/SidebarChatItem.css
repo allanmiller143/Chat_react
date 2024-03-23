@@ -1,0 +1,62 @@
+.SidebarChatItem{
+    display: flex;
+    padding: 6px;
+    padding-right: 0;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 50px;
+
+}
+
+.SidebarChatItem:hover{
+    background-color: rgba(142, 142, 142, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.SidebarChatItemPhoto{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.SidebarChatItemName{
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.897);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.SidebarChatItemInfo{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 85%;
+}
+
+.SidebarChatItemLastMessage {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+
+}
+
+.SidebarChatItemContent{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.SidebarChatItemHour{
+    font-size: 0.8rem;
+}

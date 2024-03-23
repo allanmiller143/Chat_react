@@ -1,0 +1,14 @@
+.ChatEmpty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 outo;
+    width: 100%;
+}
+
+.ChatEmptyTitle{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
